@@ -27,17 +27,16 @@ app.use(express.urlencoded())
 
 
 // PUG SPECIFIED STUFF
-app.set('view engine','pug')// set the template engine as pug 
-app.set('views',path.join(__dirname,'views'))//set the views directory
+//app.set('view engine','pug')// set the template engine as pug 
+//app.set('views',path.join(__dirname,'views'))//set the views directory
 
 
 
 // ENDPOINTS 
 
-app.get("/", (req, res) => {
-    
-    res.status(200).render('index.pug');
-})
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/views/index.html'));
+});
 
 
  app.post("/contact", (req, res) => {
